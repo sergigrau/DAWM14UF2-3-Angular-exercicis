@@ -1,0 +1,60 @@
+<div class="container text-center">
+  <div class="container">
+    <h3>
+      {{ nombrePomodoros | i18nPlural: totalsEnCua }} per Avui
+      <span class="small" *ngIf="nombrePomodoros > 0">(Temps estimat:
+        {{ nombrePomodoros * 25 | formatData }})</span>
+    </h3>
+
+    <h4>Activitats</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Termini</th>
+          <th>Pomodoros</th>
+          <th>Accions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activitat of activitats; let i = index">
+          <th scope="row">{{i}}
+            <span *ngIf="activitat.enCua" class="label label-info">
+              PENDENT
+            </span>
+          </th>
+          <td>{{activitat.nom | slice: 0:35 }}
+            <span [hidden]="activitat.nom.length < 35">...</span>
+          </td>
+          <td>{{activitat.termini | date: 'fullDate' }}
+            <span *ngIf="activitat.termini < avui" class="label label-danger">
+              RETARD
+            </span>
+          </td>
+          <td class="text-center">{{activitat.nombrePomodoros}}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-default btn-xs"
+              (click)="toggleactivitat(activitat)"
+              [ngSwitch]="activitat.enCua">
+              <template [ngSwitchCase]="false">
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Afegeix
+              </template>
+              <template [ngSwitchCase]="true">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+                Esborra
+              </template>
+              <template ngSwitchDefault>
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Add
+              </template>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
