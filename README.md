@@ -1,7 +1,7 @@
 # DAWM14UF2-3-Angular-exercicis
 
-<img src="https://angular.io/resources/images/logos/angular2/angular.png" height="100px">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/TypeScript_Logo.png" height="100px">
+<img src="https://angular.io/resources/images/logos/angular2/angular.png" height="150px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/TypeScript_Logo.png" height="80px">
 
 <h1>Class exercises of Angular 2 with TypeScript</h1>
 
